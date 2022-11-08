@@ -54,12 +54,35 @@
                             <div class="main-body">
                                 <div class="page-wrapper">
                                     <div class="page-body">
-
-                                        <div class="row">
-
-
-
-
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Places</h5>
+                                                <span>use class <code>table-hover</code> inside table element</span>
+                                                <a th:href="@{/places/create}" type="button" class="btn btn-primary waves-effect waves-light add" >Add</a>
+<!--                                                <div class="card-header-right"> <ul class="list-unstyled card-option"> <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li> <li><i class="feather icon-maximize full-card"></i></li> <li><i class="feather icon-minus minimize-card"></i></li> <li><i class="feather icon-refresh-cw reload-card"></i></li> <li><i class="feather icon-trash close-card"></i></li> <li><i class="feather icon-chevron-left open-card-option"></i></li> </ul> </div>-->
+                                            </div>
+                                            <div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Region Name</th>
+                                                            <th>Name</th>
+                                                            <th>Created At</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr th:each="place : ${places}">
+                                                            <th th:text="${place.id}" scope="row">id</th>
+                                                            <td th:text="${place.region.name}">name</td>
+                                                            <td th:text="${place.name}">name</td>
+                                                            <td th:text="${place.createdAt}">createdAt</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
